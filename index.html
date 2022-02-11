@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script> -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="row">
+      <div class="col s8">
+        <div class="col s4 contenedor_logos"><img src="https://rsulca8.github.io/logo_fcejys.png" class="logo"></div>
+        <div class="col s4 contenedor_titulo">
+            <h5>Solicitud de Equipamiento Multimedia - Clases</h5>
+        </div>
+        <div class="col s4 contenedor_logos"><img src="https://rsulca8.github.io/logo_unsa.jpg" class="logo"></div>
+      </div>
+
+    </div >
+    <div class="row">
+        <form class="col s8">
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="materia" type="text" class="validate" placeholder="Materia" required>
+                    <label for="materia">Materia</label>
+                </div>
+                <div class="input-field col s12">
+                    <input placeholder="Apellido y Nombre" id="nombre_apellido" type="text" class="validate" required>
+                    <label for="nombre_apellido">Apellido y Nombre</label>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="dni" type="number" min=1000000 placeholder="Ingrese DNI, sin puntos" class="validate" required>
+                    <label for="dni">DNI</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="telefono" type="tel" class="validate" placeholder="Teléfono de contacto" required>
+                    <label for="telefono">Teléfono de contacto, sin 0 y sin 15, en lo posible con WhatsApp</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" type="email" data-error="e-mail inválido" class="validate" required>
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <select>
+                        <option value="" disabled selected>Seleccione Equipo Requerido</option>
+                        <option value="proyector">Proyector</option>
+                        <option value="notebook">Notebook</option>
+                    </select>
+                    <label>Equipo Requerido</label>
+                </div>
+                <div class="input-field col s6">
+                    <select>
+                      <option value="" disabled selected>Seleccione Tipo de Pedido</option>
+                      <option value="1">Para una fecha específica</option>
+                      <option value="2">Recurrente</option>
+                    </select>
+                    <label>Tipo de Pedido</label>
+                  </div>
+            </div>
+            <div class="row">
+                <!-- <div class="input-field">
+                    <select name="tipo_pedido">
+                        <option value="fecha">Para una fecha específica</option>
+                        <option value="recurrente">Recurrente</option>
+                    </select>
+                    <label for="tipo_pedido">Tipo de Solicitud</label>
+                </div> -->
+
+            </div>
+
+            <div id="contenedor_fecha" class="row">
+                <div class="fecha">
+                    <div >
+                        <div class="input-field col s4">
+                            <input name="hora_1" type="time">
+                            <label for="hora_1">Ingrese Hora</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="submit" value="Enviar Pedido" class="waves-effect waves-light btn">
+                </div>
+            </div>
+        </form>
+      </div>
+            
+</body>
+</html>

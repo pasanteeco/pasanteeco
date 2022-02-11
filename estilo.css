@@ -1,0 +1,22 @@
+
+    .logo{
+        height: 7em;
+        width: 7em;
+        margin: 2em;
+    }
+
+.contenedor_logos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor_titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8em !important;
+    text-align: center;
+    vertical-align: center;
+}
+
