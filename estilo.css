@@ -1,9 +1,9 @@
 
-    .logo{
-        height: 7em;
-        width: 7em;
-        margin: 2em;
-    }
+.logo{
+    height: 7em;
+    width: 7em;
+    margin: 2em;
+}
 
 .contenedor_logos{
     display: flex;
@@ -20,3 +20,21 @@
     vertical-align: center;
 }
 
+.oculto{
+    display: none;
+}
+
+.visible{
+    display: block;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+    pointer-events: none;
+  }
