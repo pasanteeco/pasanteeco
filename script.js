@@ -5,7 +5,13 @@ document.addEventListener('DOMContentLoaded', function() {
             classes : "select_"
         });
     }
-    M.AutoInit();
+    // M.AutoInit();
+    function incializacion_inicial_selects(){
+        var elementos = document.querySelectorAll(`select`);
+        var instances = M.FormSelect.init(elementos, {
+            classes : "select_"
+        });
+    }
 
     var select_tipo_pedido = document.querySelector("#select_tipo_pedido");
     var cantidad_fechas_recurrentes = 1;
@@ -30,14 +36,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
     }
-
-    boton_agregar_fecha.addEventListener("click", () => {
+  
+    boton_agregar_fecha.addEventListener("click", (e) => {
+        e.preventDefault();
+        var backup_valores = {};
         var contenedor_recurrente = document.querySelector(".fechas_recurrentes");
+        var selects = document.querySelectorAll(".fechas_recurrentes select");
+        for(sel of selects){
+            let instancia = M.FormSelect.getInstance(sel);
+            backup_valores[sel.id] = instancia.input.value;
+            instancia.destroy();
+        }
         cantidad_fechas_recurrentes += 1;
         contenedor_recurrente.innerHTML += `
             <div class="row" id="fecha_hora_${cantidad_fechas_recurrentes}">
                 <div class="input-field col s4">
-                    <select name="fecha_${cantidad_fechas_recurrentes}" class="no-autoinit" id="fecha_${cantidad_fechas_recurrentes}">
+                    <select name="fecha_${cantidad_fechas_recurrentes}" id="fecha_${cantidad_fechas_recurrentes}">
                         <option>Lunes</option>
                         <option>Martes</option>
                         <option>Miércoles</option>
@@ -47,19 +61,31 @@ document.addEventListener('DOMContentLoaded', function() {
                     <label>Día</label>
                 </div>
                 <div class="input-field col s4">
-                    <input class="no-autoinit" name="hora_${cantidad_fechas_recurrentes}" id="hora_${cantidad_fechas_recurrentes}" type="time">
+                    <input name="hora_${cantidad_fechas_recurrentes}" id="hora_${cantidad_fechas_recurrentes}" type="time">
                     <label for="hora_${cantidad_fechas_recurrentes}">Ingrese Hora</label>
                 </div>
                 <div class="col s2">
-                    <button class="waves-effect waves-light btn-floating"><i class="material-icons left">delete</i></button>
+                    <button id="boton_eliminar_${cantidad_fechas_recurrentes}" class="waves-effect waves-light btn-floating"><i class="material-icons left">delete</i></button>
                 </div>
             </div>
         `;
-        iniciar_select(`fecha_${cantidad_fechas_recurrentes}`);
+        selects = document.querySelectorAll(".fechas_recurrentes select");
+        for(sel of selects){
+            iniciar_select(sel.id);
+        }
+        for(bk of Object.entries(backup_valores)){
+            let instancia = M.FormSelect.getInstance(document.querySelector("#" + bk[0]));
+            instancia.input.value = bk[1];
+        }
+
+        document.querySelector(`boton_eliminar_${cantidad_fechas_recurrentes}`).addEventListener("click", () => {
+            cantidad_fechas_recurrentes -= 1;
+            
+        });
     })
 
 
-    // iniciar_selects();
+    incializacion_inicial_selects();
     select_tipo_pedido.addEventListener("change", elegir_tipo_pedido);
     elegir_tipo_pedido();
     var select_tipo_pedido = document.querySelector("#contenedor_fecha");
