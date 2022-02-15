@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    var docentes = null;
     function iniciar_select(id){
         var elemento = document.querySelector(`#${id}`);
         var instances = M.FormSelect.init(elemento, {
@@ -103,10 +104,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     (async () => {
-        url = "https://script.google.com/macros/s/AKfycbwWP1JnA9DCcQSVJGsxHPWAK8JckqVgD4UivkRNKPIepS4fuioRsea2iD0p5VhRSNeB/exec";
+        // url = "https://script.google.com/macros/s/AKfycbzK79DVl8TAFriI-28b66pZWWLRoj3sIBz8KoKEx2U6BGmzoZr3KvXvn-sqJphUdBY-/exec";
+        var URL_DOCENTES = "https://script.google.com/macros/s/AKfycbyYROZGmlbpY9Dn-G6XRss_tQ5KCHiui7ApARqFefYXv0jXMqa0V9hWeNGAoO7Z2wzi/exec?pagina=docentes"; 
         var formData = new FormData();
+        
         formData.append("username", "Groucho");
-        respuesta = await fetch(url, {method: "POST", body: formData});
+        respuesta = await fetch(URL_DOCENTES, {method: "GET"});
         json = await respuesta.json();
         console.log(json);
     })();

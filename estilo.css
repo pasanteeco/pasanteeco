@@ -11,12 +11,22 @@
     align-items: center;
 }
 
+.encabezado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
 .contenedor_titulo{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 8em !important;
+    height: 12em !important;
+    width: 100% !important;
     text-align: center;
+    flex-direction: column;
+
     vertical-align: center;
 }
 

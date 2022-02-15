@@ -18,10 +18,11 @@
 </head>
 <body>
     <div class="row">
-      <div class="col s12">
+      <div class="col s12 encabezado">
         <div class="col s4 contenedor_logos"><img src="https://rsulca8.github.io/logo_fcejys.png" class="logo noselect"></div>
         <div class="col s4 contenedor_titulo">
-            <h5 class="noselect">Solicitud de Equipamiento Multimedia - Clases</h5>
+            <h5 class="noselect">Solicitud de Equipamiento Multimedia</h5>
+            <h3 class="noselect">Clases</h3>
         </div>
         <div class="col s4 contenedor_logos"><img src="https://rsulca8.github.io/logo_unsa.jpg" class="logo noselect"></div>
       </div>
@@ -61,7 +62,7 @@
             <div class="row">
                 <div class="input-field col s6">
                     <select id="select_equipos">
-                        <option value="" disabled selected>Seleccione Equipo Requerido</option>
+                        <option value="" disabled selected>Seleccione</option>
                         <option value="proyector">Proyector</option>
                         <option value="notebook">Notebook</option>
                     </select>
@@ -69,8 +70,8 @@
                 </div>
                 <div class="input-field col s6" id="tipo_pedido">
                     <select id="select_tipo_pedido">
-                      <option value="" disabled selected>Seleccione Tipo de Pedido</option>
-                      <option value="1">Para una fecha específica</option>
+                      <option value="" disabled selected>Seleccione</option>
+                      <option value="1">Fecha única</option>
                       <option value="2">Recurrente</option>
                     </select>
                     <label>Tipo de Pedido</label>
@@ -125,12 +126,16 @@
                     </div>
                     <div class="row">
                         <div class="col s4">
-                            <button class="waves-effect waves-light btn" id="boton_agregar_fecha" title="Agregar Fecha"><i class="material-icons left">date_range</i>Agregar Fecha</button>
+                            <button class="waves-effect waves-light btn" id="boton_agregar_fecha" title="Agregar Fecha">
+                                <i class="material-icons left">add</i>
+                                <i class="material-icons left">date_range</i>
+                                Agregar Fecha
+                            </button>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s4">
+                    <div class="input-field col s6">
                         <input type="date" id="fecha_final_recurrente">
                         <label>Fecha Final de Recurrencia</label>
                     </div>
