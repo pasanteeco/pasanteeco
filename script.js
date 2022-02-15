@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var contenedor_recurrente = document.querySelector(".recurrente");
         var tipo_pedido = document.querySelector("#tipo_pedido input");
         switch (tipo_pedido.value) {
-            case "Para una fecha específica":
+            case "Fecha única":
                 contenedor_contenedor_fecha.classList.replace("oculto", "visible");
                 contenedor_recurrente.classList.replace("visible", "oculto");
                 break;
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <label>Día</label>
                 </div>
                 <div class="input-field col s4">
-                    <input name="hora_${id_unico}" id="hora_${id_unico}" type="time">
+                    <input name="hora_${id_unico}" id="hora_${id_unico}" type="time" min="08:00" max="20:00">
                     <label for="hora_${id_unico}">Ingrese Hora</label>
                 </div>
                 <div class="input-field col s2">
@@ -103,15 +103,21 @@ document.addEventListener('DOMContentLoaded', function() {
     fecha_pedido.min = hoy;
 
 
-    (async () => {
-        // url = "https://script.google.com/macros/s/AKfycbzK79DVl8TAFriI-28b66pZWWLRoj3sIBz8KoKEx2U6BGmzoZr3KvXvn-sqJphUdBY-/exec";
+    async function autocomplete_docentes(){
         var URL_DOCENTES = "https://script.google.com/macros/s/AKfycbyYROZGmlbpY9Dn-G6XRss_tQ5KCHiui7ApARqFefYXv0jXMqa0V9hWeNGAoO7Z2wzi/exec?pagina=docentes"; 
-        var formData = new FormData();
-        
-        formData.append("username", "Groucho");
         respuesta = await fetch(URL_DOCENTES, {method: "GET"});
-        json = await respuesta.json();
-        console.log(json);
+        docentes = await respuesta.json();
+        nombres_apellidos_docentes = {};
+        docentes.forEach((e) => {
+            nombres_apellidos_docentes[e["apellido"] + " " + e["nombre"]] = null;
+        });
+        M.Autocomplete.init(document.querySelector("#nombre_apellido"), {data: nombres_apellidos_docentes})
+    }
+
+    (async () => {
+        autocomplete_docentes();
+
+        // url = "https://script.google.com/macros/s/AKfycbzK79DVl8TAFriI-28b66pZWWLRoj3sIBz8KoKEx2U6BGmzoZr3KvXvn-sqJphUdBY-/exec";
     })();
 
 
