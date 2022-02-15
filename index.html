@@ -103,27 +103,36 @@
             </div>
 
             <div class="recurrente oculto">
-                <div class="fechas_recurrentes">
-                    <div class="row" id="fecha_hora_1">
-                        <div class="input-field col s4">
-                            <select name="fecha_1" id="fecha_1">
-                                <option>Lunes</option>
-                                <option>Martes</option>
-                                <option>Miércoles</option>
-                                <option>Jueves</option>
-                                <option>Sábado</option>
-                            </select>
-                            <label>Día</label>
+                <div class="card-panel teal lighten-5">
+                    <h5>Fechas Recurrentes</h5>
+                    <div class="fechas_recurrentes">
+                        <div class="row" id="fecha_hora_1">
+                            <div class="input-field col s4">
+                                <select name="fecha_1" id="fecha_1">
+                                    <option>Lunes</option>
+                                    <option>Martes</option>
+                                    <option>Miércoles</option>
+                                    <option>Jueves</option>
+                                    <option>Sábado</option>
+                                </select>
+                                <label>Día</label>
+                            </div>
+                            <div class="input-field col s4">
+                                <input name="hora_1" type="time">
+                                <label for="hora_1">Ingrese Hora</label>
+                            </div>
                         </div>
-                        <div class="input-field col s4">
-                            <input name="hora_1" type="time">
-                            <label for="hora_1">Ingrese Hora</label>
+                    </div>
+                    <div class="row">
+                        <div class="col s4">
+                            <button class="waves-effect waves-light btn" id="boton_agregar_fecha" title="Agregar Fecha"><i class="material-icons left">date_range</i>Agregar Fecha</button>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s4">
-                        <button class="waves-effect waves-light btn" id="boton_agregar_fecha"><i class="material-icons left">date_range</i>Agregar Fecha</button>
+                    <div class="input-field col s4">
+                        <input type="date" id="fecha_final_recurrente">
+                        <label>Fecha Final de Recurrencia</label>
                     </div>
                 </div>
             </div>
